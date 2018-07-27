@@ -3,7 +3,7 @@ Tweego project template
 
 This is my default template for a tweego project, using rollup for ES6 features (especially its nice imports) and sass for some simple improvements to CSS (nesting especially).
 
-###Requires:
+# Requires:
 
  * [tweego](https://www.motoslave.net/tweego/)
  * [rollup](https://rollupjs.org)
