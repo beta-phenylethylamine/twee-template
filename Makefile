@@ -16,7 +16,7 @@ build/main.css: src/style/main.$(SASSTYPE) build/
 	$(SASSC) src/style/main.$(SASSTYPE) build/main.css
 
 build/main.js: src/js/main.js build/
-	$(ROLLUP) src/js/main.js -o build/main.js -f cjs
+	$(ROLLUP) src/js/main.js -o build/main.js -f iife
 
 $(NAME).html: build/main.css build/main.js src/twee/
 	$(TWEEGO) --format=$(FORMAT) --output=$(NAME).html build/ src/twee/
