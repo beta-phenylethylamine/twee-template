@@ -33,5 +33,6 @@ test: test.html
 clean:
 	-rm -r build/
 	-rm $(NAME).html
+	-rm test.html
 
 .PHONY: clean run test
