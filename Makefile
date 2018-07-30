@@ -21,11 +21,17 @@ build/main.js: src/js/main.js build/
 $(NAME).html: build/main.css build/main.js src/twee/
 	$(TWEEGO) --format=$(FORMAT) --output=$(NAME).html build/ src/twee/
 
+test.html: build/main.css build/main.js src/twee/
+	$(TWEEGO) --format=$(FORMAT) --output=test.html build/ src/twee/
+
 run: $(NAME).html
 	$(BROWSER) $(NAME).html
+	
+test: test.html
+	$(BROWSER) test.html
 
 clean:
 	-rm -r build/
 	-rm $(NAME).html
 
-.PHONY: clean run
+.PHONY: clean run test
