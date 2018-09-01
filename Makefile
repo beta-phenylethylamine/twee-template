@@ -18,11 +18,14 @@ build/main.css: src/style/main.$(SASSTYPE) build/
 build/main.js: src/js/main.js build/
 	$(ROLLUP) src/js/main.js -o build/main.js -f iife
 
-$(NAME).html: build/main.css build/main.js src/twee/
-	$(TWEEGO) --format=$(FORMAT) --output=$(NAME).html build/ src/twee/
+ifid.twee:
+	$(TWEEGO) build/ src/twee/ 2>&1 | tail -n 3 | head -n 2 > ifid.twee
 
-test.html: build/main.css build/main.js src/twee/
-	$(TWEEGO) --test --format=$(FORMAT) --output=test.html build/ src/twee/
+$(NAME).html: build/main.css build/main.js src/twee/ ifid.twee
+	$(TWEEGO) --format=$(FORMAT) --output=$(NAME).html build/ src/twee/ ifid.twee
+
+test.html: build/main.css build/main.js src/twee/ ifid.twee
+	$(TWEEGO) --test --format=$(FORMAT) --output=test.html build/ src/twee/ ifid.twee
 
 run: $(NAME).html
 	$(BROWSER) $(NAME).html
